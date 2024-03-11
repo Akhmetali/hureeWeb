@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-// pages/profile.js
+import Image from 'next/image';
 
 const Profile = () => {
   const [userData, setUserData] = useState({
@@ -63,10 +63,21 @@ const Profile = () => {
 
   return (
     <div className='flex justify-center items-center h-screen'>
-      <div className='bg-white p-8 rounded-lg shadow-md'>
-        <h1 className='text-2xl font-bold mb-4'>Profile</h1>
+      <div className='bg-white p-8 rounded-lg shadow-md w-auto sm:w-1/3'>
+        <div className='pb-2'>
+            <Image
+                unoptimized
+                className='w-48 pb-4'
+                width={100}
+                height={100}
+                src={"/logo.png"}
+            />
+        </div>
+        <h1 className='text-2xl mb-4 flex items-center'>Сайн уу, <p className='font-bold uppercase'>{editedData.username}</p></h1>
+        
         {editMode ? (
           <form onSubmit={handleSubmit} className='mb-4'>
+      
             <div className='mb-4'>
               <label className='block text-gray-700 font-bold mb-2'>Username</label>
               <input
